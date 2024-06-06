@@ -1,4 +1,4 @@
-use master;
+﻿use master;
 go
 drop database if exists ExpenseTrackerDB;
 go
@@ -6,7 +6,14 @@ create database ExpenseTrackerDB;
 go
 use ExpenseTrackerDB;
 
-CREATE TABLE "User" (
+DROP TABLE "Users";
+DROP TABLE Categorys;
+DROP TABLE Payment_methods;
+DROP TABLE Budgets;
+DROP TABLE Expenses;
+
+
+CREATE TABLE "Users" (
 
   user_id int not null primary key identity(1,1),
   name varchar(50) not null,
@@ -16,7 +23,7 @@ CREATE TABLE "User" (
 
 );
 
-CREATE TABLE Category (
+CREATE TABLE Categorys (
 
   category_id int not null primary key identity(1,1),
   name varchar(50) not null,
@@ -24,14 +31,14 @@ CREATE TABLE Category (
 
 );
 
-CREATE TABLE Payment_method (
+CREATE TABLE Payment_methods (
 
   payment_method_id int not null primary key identity(1,1),
   name varchar(50)
 
 );
 
-CREATE TABLE Budget (
+CREATE TABLE Budgets (
 
   budget_id int not null primary key identity(1,1),
   user_id int not null,
@@ -40,12 +47,12 @@ CREATE TABLE Budget (
   start_date datetime,
   end_date datetime,
 
-  FOREIGN KEY (user_id) REFERENCES "User"(user_id),
-  FOREIGN KEY (category_id) REFERENCES Category(category_id)
+  FOREIGN KEY (user_id) REFERENCES "Users"(user_id),
+  FOREIGN KEY (category_id) REFERENCES Categorys(category_id)
 
 );
 
-CREATE TABLE Expense (
+CREATE TABLE Expenses (
 
   expense_id int  not null primary key identity(1,1),
   user_id int,
@@ -55,10 +62,16 @@ CREATE TABLE Expense (
   date datetime,
   description varchar(255),
 
-  FOREIGN KEY (user_id) REFERENCES "User"(user_id),
-  FOREIGN KEY (category_id) REFERENCES Category(category_id),
-  FOREIGN KEY (payment_method_id) REFERENCES Payment_method(payment_method_id)
-
+  FOREIGN KEY (user_id) REFERENCES "Users"(user_id),
+  FOREIGN KEY (category_id) REFERENCES Categorys(category_id),
+  FOREIGN KEY (payment_method_id) REFERENCES Payment_methods(payment_method_id)
 
 );
+
+
+INSERT INTO Users(name,email,password,created_at) VALUES
+('Jakov Šužberić', 'jakov.suzberic@gmail.com', 'sifrajedan', '2024-06-06 16:00');
+('Lovro Šužberić', 'loky747@gmail.com', 'sifradva', '2024-06-06 16:10');
+
+SELECT * FROM "Users";
 
