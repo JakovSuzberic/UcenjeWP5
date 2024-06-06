@@ -70,8 +70,29 @@ CREATE TABLE Expenses (
 
 
 INSERT INTO Users(name,email,password,created_at) VALUES
-('Jakov Šužberić', 'jakov.suzberic@gmail.com', 'sifrajedan', '2024-06-06 16:00');
-('Lovro Šužberić', 'loky747@gmail.com', 'sifradva', '2024-06-06 16:10');
+('Jakov Šužberić', 'jakov.suzberic@gmail.com', 'sifrajedan', '2024-06-06 16:00'),
+('Lovro Šužberić', 'loky747@gmail.com', 'sifradva', '2024-06-06 16:10'),
+('Mato Matić', 'mato123@gmail.com', 'sifraxy', '2024-06-07 01:10');
+
+INSERT INTO Categorys(name,description) VALUES
+('Food','Monthly groceries expenses'),
+('Gym','Monthly gym membership and supplements'),
+('Rent','Monthly rent');
+
+INSERT INTO Payment_methods(name) VALUES
+('Card'),
+('Cash'),
+('Cupons');
+
+INSERT INTO Budgets(amount,start_date,end_date) VALUES
+(25.55, '2024-06-06 00:00','2024-07-06 00:00'),
+(39.99, '2024-06-06 00:00','2024-07-06 00:00'),
+(14.99, '2024-06-06 00:00','2024-07-06 00:00');
+
+INSERT INTO Expenses(amount, date, description) VALUES
+(25.55, '2024-06-06 00:00','Gym'),
+(39.99, '2024-06-06 00:00','Starbucks'),
+(14.99, '2024-06-06 00:00','Groceries');
 
 SELECT * FROM "Users";
 
