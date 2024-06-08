@@ -41,23 +41,27 @@ CREATE TABLE Payment_methods (
 CREATE TABLE Budgets (
 
   budget_id int not null primary key identity(1,1),
-  user_id int not null,
-  category_id int not null,
   amount float,
   start_date datetime,
   end_date datetime,
+  user_id int not null, 
+  category_id int not null,
 
-  FOREIGN KEY (user_id) REFERENCES "Users"(user_id),
-  FOREIGN KEY (category_id) REFERENCES Categorys(category_id)
+  --FOREIGN KEY (user_id) REFERENCES "Users"(user_id),
+  --FOREIGN KEY (category_id) REFERENCES Categorys(category_id)
 
 );
+
+ALTER TABLE Budgets ADD FOREIGN KEY (user_id) REFERENCES "Users"(user_id);
+ALTER TABLE Budgets ADD FOREIGN KEY (category_id) REFERENCES Categorys(category_id);
+
 
 CREATE TABLE Expenses (
 
   expense_id int  not null primary key identity(1,1),
-  user_id int,
-  category_id int,
-  payment_method_id int,
+  user_id int not null,
+  category_id int not null,
+  payment_method_id int not null,
   amount float,
   date datetime,
   description varchar(255),
@@ -84,15 +88,19 @@ INSERT INTO Payment_methods(name) VALUES
 ('Cash'),
 ('Cupons');
 
-INSERT INTO Budgets(amount,start_date,end_date) VALUES
-(25.55, '2024-06-06 00:00','2024-07-06 00:00'),
-(39.99, '2024-06-06 00:00','2024-07-06 00:00'),
-(14.99, '2024-06-06 00:00','2024-07-06 00:00');
+INSERT INTO Budgets(amount,start_date,end_date,user_id,category_id) VALUES
+(25.55, '2024-06-06 00:00','2024-07-06 00:00',1,1),
+(39.99, '2024-06-06 00:00','2024-07-06 00:00',2,2),
+(14.99, '2024-06-06 00:00','2024-07-06 00:00',3,3);
 
-INSERT INTO Expenses(amount, date, description) VALUES
-(25.55, '2024-06-06 00:00','Gym'),
-(39.99, '2024-06-06 00:00','Starbucks'),
-(14.99, '2024-06-06 00:00','Groceries');
+INSERT INTO Expenses(amount, date, description,user_id,category_id,payment_method_id) VALUES
+(25.55, '2024-06-06 00:00','Gym',1,1,1),
+(39.99, '2024-06-06 00:00','Starbucks',2,2,2),
+(14.99, '2024-06-06 00:00','Groceries',3,3,3);
 
-SELECT * FROM "Users";
+SELECT * FROM Users;
+SELECT * FROM Payment_methods;
+SELECT * FROM Expenses;
+SELECT * FROM Categorys;
+SELECT * FROM Budgets;
 
