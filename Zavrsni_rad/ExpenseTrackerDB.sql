@@ -47,13 +47,15 @@ CREATE TABLE Budgets (
   user_id int not null, 
   category_id int not null,
 
-  --FOREIGN KEY (user_id) REFERENCES "Users"(user_id),
-  --FOREIGN KEY (category_id) REFERENCES Categorys(category_id)
+  FOREIGN KEY (user_id) REFERENCES "Users"(user_id),
+  FOREIGN KEY (category_id) REFERENCES Categorys(category_id)
 
 );
 
-ALTER TABLE Budgets ADD FOREIGN KEY (user_id) REFERENCES "Users"(user_id);
-ALTER TABLE Budgets ADD FOREIGN KEY (category_id) REFERENCES Categorys(category_id);
+--Jos jedan nacin kako dodati FOREIGN KEY-eve
+
+--ALTER TABLE Budgets ADD FOREIGN KEY (user_id) REFERENCES "Users"(user_id);
+--ALTER TABLE Budgets ADD FOREIGN KEY (category_id) REFERENCES Categorys(category_id);
 
 
 CREATE TABLE Expenses (
