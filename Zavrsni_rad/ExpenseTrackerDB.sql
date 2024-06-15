@@ -6,11 +6,11 @@ create database ExpenseTrackerDB;
 go
 use ExpenseTrackerDB;
 
-DROP TABLE "Users";
-DROP TABLE Categorys;
-DROP TABLE Payment_methods;
-DROP TABLE Budgets;
-DROP TABLE Expenses;
+--DROP TABLE "Users";
+--DROP TABLE Categorys;
+--DROP TABLE Payment_methods;
+--DROP TABLE Budgets;
+--DROP TABLE Expenses;
 
 
 CREATE TABLE "Users" (
