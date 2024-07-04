@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//rekao cimi napraviti sa while petljom i staviti counter za strane
+
 namespace UcenjeCS
 {
     internal class Zadatak0307
@@ -26,8 +28,9 @@ namespace UcenjeCS
 
             int[,] array = new int[numberOfRow, numberOfColums];
 
-            array[numberOfRow - 1, numberOfColums - 1] = increment++;
+            //array[numberOfRow - 1, numberOfColums - 1] = increment++;
 
+            /*
             for (int i = numberOfRow - 1; i <= 0; i--)
             {
 
@@ -48,13 +51,14 @@ namespace UcenjeCS
 
 
             }
+            */
 
+            int counter = 0, direction = 0;
 
-
-            // array[numberOfRow - 1, numberOfColums - 1] = increment;
-
-            // while (increment != (numberOfRow * numberOfColums))
+            while (product != increment)
             {
+
+                
 
 
             }
