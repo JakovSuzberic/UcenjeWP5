@@ -2,6 +2,7 @@
 
 using UcenjeCS;
 
-Zadatak0307.izvedi();
+//Zadatak0307.izvedi();
 
+LoveCalculator.Izvedi();
 
